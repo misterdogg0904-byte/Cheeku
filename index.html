@@ -198,7 +198,9 @@ footer{text-align:center;padding:35px 20px;color:#bda8cb;font-size:.82rem;border
 .scrapbook-poster{
   position:relative;overflow:visible;
   perspective:1400px;
+  cursor:zoom-in;
 }
+.scrapbook-poster:focus-visible{outline:3px solid #ffd0e8;outline-offset:5px}
 .scrapbook-poster::before{
   content:"";position:absolute;left:-1.5%;right:-1.5%;top:-13px;height:25px;
   z-index:3;border-radius:14px;
@@ -352,13 +354,14 @@ function openWish(){document.getElementById('wishBox').classList.add('show');hea
 // Scrapbook photos open in a full-screen memory viewer.
 const photoLightbox=document.getElementById('photoLightbox');
 const lightboxImage=document.getElementById('lightboxImage');
-document.querySelectorAll('.photo-card img').forEach(photo=>{
-  photo.closest('.photo-card').setAttribute('tabindex','0');
-  photo.closest('.photo-card').setAttribute('role','button');
-  photo.closest('.photo-card').setAttribute('aria-label','Open this photo memory');
+document.querySelectorAll('.photo-card img, .scrapbook-poster img').forEach(photo=>{
+  const photoTrigger=photo.closest('.photo-card, .scrapbook-poster');
+  photoTrigger.setAttribute('tabindex','0');
+  photoTrigger.setAttribute('role','button');
+  photoTrigger.setAttribute('aria-label','Open this photo memory');
   const openPhoto=()=>{lightboxImage.src=photo.src;photoLightbox.classList.add('show');document.body.style.overflow='hidden'};
   photo.addEventListener('click',openPhoto);
-  photo.closest('.photo-card').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPhoto()}});
+  photoTrigger.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPhoto()}});
 });
 function closePhoto(){photoLightbox.classList.remove('show');document.body.style.overflow=''}
 document.getElementById('closeLightbox').addEventListener('click',closePhoto);
