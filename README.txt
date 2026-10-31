@@ -16,14 +16,14 @@ ADD MUSIC (OPTIONAL)
 3. Remove the two leading slashes (//), save, and refresh.
 4. Music plays only after the visitor taps the music button (browser autoplay rules).
 
-DEPLOY FREE USING GITHUB PAGES
-1. Go to https://github.com and create a public repository named rishika-birthday.
-2. Upload index.html and the assets folder. Keep the folder structure.
-3. Open Settings -> Pages.
-4. Under Build and deployment, select "Deploy from a branch".
-5. Choose branch "main" and folder "/ (root)", then Save.
-6. After publishing, the URL will look like:
-   https://YOUR-USERNAME.github.io/rishika-birthday/
+DEPLOY USING GITHUB PAGES
+This project is published from the root of the Cheeku repository:
+https://github.com/misterdogg0904-byte/Cheeku
+
+In the repository, open Settings -> Pages. Under Build and deployment,
+choose "Deploy from a branch", select branch "main" and folder "/ (root)",
+then Save. GitHub Pages will publish the site at:
+https://misterdogg0904-byte.github.io/Cheeku/
 
 MOBILE CHECK
 - Open the published link on your phone before sending it.
